@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "bug-now-gatsby-lambda",
+  "alias": "bug-now-gatsby-lambda.now.sh",
+  "builds": [
+    { "src": "api/**/*.js", "use": "@now/node" },
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "/public" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/locations",
+      "dest": "api/locations/index.js"
+    }
+  ]
+}
